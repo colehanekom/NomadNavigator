@@ -3,4 +3,19 @@
 @tailwind utilities;
 
 /* Font */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800&display=swap');
+
+:root {
+    --primary-dark: #0832ee;
+    --primary-light: #70bfff;
+  }
+
+  @layer base {
+    body {
+        @apply font-[Poppins]
+      }
+    
+      li {
+        @apply p-4 text-sm
+      }
+  }

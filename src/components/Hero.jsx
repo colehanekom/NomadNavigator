@@ -3,7 +3,9 @@ import Arial from '../assets/arialviewcape.png';
 
 const Hero = () => {
   return (
-    <div>Hero</div>
+ <div className='w-full h-screen'>
+  <img src={Arial} alt="Image" className='w-full h-screen object-cover' />
+</div> 
   );
 };
 

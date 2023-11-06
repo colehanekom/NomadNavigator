@@ -1,14 +1,13 @@
 import { useState } from 'react'
-import Landing from './components/Landing'
 import Navbar from './components/Navbar'
-
+import Hero from './components/Hero'
 
 function App() {
 
   return (
       <div>
         <Navbar/>
-       <Landing/>
+        <Hero/>
       </div>
   )
 }

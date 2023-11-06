@@ -7,6 +7,14 @@ const Navbar = () => {
       <div>
         <img src={Logo} alt="Logo Image" style={{ width: '80px' }} />
       </div>
+      <ul className='sm:flex px-4'>
+        <li>
+          <a href='#signup'>Sign Up</a>
+        </li>
+        <li style={{ marginLeft: '10px' }}>
+          <a href='#signin'>Sign In</a>
+        </li>
+      </ul>
     </div>
   );
 };

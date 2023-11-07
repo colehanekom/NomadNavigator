@@ -1,7 +1,7 @@
 import React from 'react';
 import Arial from '../assets/arialviewcape.png';
 
-const Hero = () => {
+function Hero () {
   return (
  <div className='w-full h-[98vh]'>
 <img src={Arial} alt="Image" className='w-full h-screen object-cover' />

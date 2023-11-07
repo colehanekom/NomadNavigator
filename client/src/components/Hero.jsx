@@ -6,7 +6,7 @@ const Hero = () => {
  <div className='w-full h-[98vh]'>
 <img src={Arial} alt="Image" className='w-full h-screen object-cover' />
 <div className='max-w-[1140px] m-auto'>
-  <div className='absolute top-[20%] w-full md:-[50%] max-w-[600px] h-80 flex flex-col text-white p-4 backdrop-blur-sm'>
+  <div className='absolute top-[20%] w-full md:-[50%] max-w-[600px] h-100 flex flex-col text-white p-4 backdrop-blur-sm'>
     <h1 className='font-bold text-4xl mb-4'>
       Discover New Destinations and Connect with Like-Minded Travelers
     </h1>

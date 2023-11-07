@@ -1,5 +1,6 @@
 import React from 'react';
 import Arial from '../assets/arialviewcape.png';
+import { Link } from "react-router-dom";
 
 function Hero () {
   return (
@@ -16,7 +17,7 @@ function Hero () {
       like-minded individuals who share your passion for exploration.
     </p>
     <button className='mt-4 px-4 py-2 border bg-[#1065A1] rounded-full text-white w-52 hover:scale-105'>
-      Share Your Story
+    <Link to = '/signin'> Share Your Story</Link>
     </button>
   </div>
 </div>

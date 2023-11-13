@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import TextInput from "../components/TextInput";
+import {Loading, CustomButton, TextInput} from "../components/";
 import Logo from '../assets/nomad-navigator-logo.png';
 
 const Signin = () => {
@@ -10,6 +11,14 @@ const Signin = () => {
   } = useForm({
     mode: "onChange",
   });
+
+  const onSubmit = async(data) => {
+
+  }
+
+  const [errMsg, setErrMsg] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const dispatch = useDispatch();
 
   return (
     <div className='w-full h-[100vh] bg-slate-50 flex items-center justify-center p-6'>
@@ -26,7 +35,8 @@ const Signin = () => {
           <div className='w-full flex gap-2 items-center mb-6'>
             <span className='text-4xl text-[#1065A1] font-semibold'>Nomad Navigator</span>
           </div>
-          <form className="py-8 flex flex-col gap-5">
+          <form className="py-8 flex flex-col gap-5" 
+          onSubmit={handleSubmit(onSubmit)}>
             <TextInput
             name="email" placeholder="Enter your email"
             label="Email Address"
@@ -52,7 +62,34 @@ const Signin = () => {
             />
 
             <Link to='/reset-password' className='text-sm text-right text-[#1065A1] font-semibold'>Forgot Password?</Link>
+
+            {errMsg?.message && (
+                <span className={`text-sm ${
+                  errMsg?.status == "failed"
+                  ? "text-red-600"
+                  : "text-green-600"
+                } mt-0.5`}
+                >
+                  {errMsg?.message}
+                </span>
+              )
+            }
+
+            {
+              isSubmitting ? ( <Loading/> ) : <CustomButton 
+              type= 'submit'
+              containerStyles={`inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none`}
+              title='Sign In'/>
+            }
           </form>
+
+          <p className='text-ascent-2 text-sm text-center'>Don't have an account?
+          <Link
+            to='/signup'
+            className='text-[#1065A1] font-semibold ml-2 cursor-pointer'>
+              Sign Up
+            </Link>
+          </p>
         </div>
       </div>
     </div>

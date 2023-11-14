@@ -4,5 +4,6 @@ import Signup from "./Signup";
 import Home from "./Home";
 import Profile from "./Profile";
 import ResetPassword from "./ResetPassword";
+import EmailSignUp from "./EmailSignUp";
 
-export{Landing, Signin, Signup, Home, Profile, ResetPassword};
+export{Landing, Signin, Signup, EmailSignUp, Home, Profile, ResetPassword};

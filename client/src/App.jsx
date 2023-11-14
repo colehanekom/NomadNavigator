@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {Outlet, Navigate, Routes, Route, useLocation} from 'react-router-dom';
 import { useSelector } from "react-redux";
-import { Landing, Signin, Signup, Home, Profile, ResetPassword } from './pages';
+import { Landing, Signin, Signup, Home, Profile, ResetPassword, EmailSignUp } from './pages';
 
 function Layout(){
   const {user} = useSelector((state) => state.user);
@@ -24,15 +24,13 @@ function App() {
           <Route index element={<Landing/>}/>
           <Route path='/signin' element={<Signin/>}/>
           <Route path='/signup' element={<Signup/>}/>
+          <Route path='/reset-password' element={<ResetPassword/>}/> 
+          <Route path='/email-signup' element={<EmailSignUp/>}/> 
 
           <Route element={<Layout/>}>
           <Route path='/' element={<Home/>}/> 
           <Route path='/profile/:id?' element={<Profile/>} />
           </Route>
-      
-          <Route path='/signup' element={<Signup/>}/>
-          <Route path='/signin' element={<Signin/>}/>
-          <Route path='/reset-password' element={<ResetPassword/>}/> 
         </Routes>
         
       </div>

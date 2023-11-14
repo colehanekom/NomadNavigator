@@ -5,11 +5,6 @@
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800&display=swap');
 
-:root {
-    --primary-dark: #0832ee;
-    --primary-light: #70bfff;
-  }
-
   @layer base {
     body {
         @apply font-[Poppins]

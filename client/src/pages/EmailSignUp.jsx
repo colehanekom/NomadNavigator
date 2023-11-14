@@ -5,9 +5,9 @@ import { useForm } from 'react-hook-form';
 import {Loading, CustomButton, TextInput} from "../components/";
 import Logo from '../assets/nomad-navigator-logo.png';
 
-const Signin = () => {
+const Signup = () => {
   const { 
-    register, handleSubmit, formState: {errors},
+    register, handleSubmit, getValues, formState: {errors},
   } = useForm({
     mode: "onChange",
   });
@@ -33,35 +33,61 @@ const Signin = () => {
         {/* RIGHT */}
         <div className='w-full lg:w-1/2 h-full p-10 2xl:px-20 flex flex-col justify-center'>  
           <div className='w-full flex gap-2 items-center mb-6'>
-            <span className='text-4xl text-[#1065A1] font-semibold'>Nomad Navigator</span>
+            <span className='text-4xl font-semibold'>Sign Up</span>
           </div>
+
           <form className="py-8 flex flex-col gap-5" 
           onSubmit={handleSubmit(onSubmit)}>
-            <TextInput
-            name="email" placeholder="Enter your email"
+             <TextInput
+            name="userName" placeholder="Username"
+            label="Username"
+            type="userName"
+            register={register("userName", {
+              required: "Username is required",
+            })}
+            styles='w-full'
+            error={errors.userName ? errors.userName?.message : ""}
+            />
+
+             <TextInput
+            name="email" placeholder="Email"
             label="Email Address"
             type="email"
             register={register("email", {
               required: "Email Address is required",
             })}
-            styles='w-full rounded-full'
-            labelStyle='ml-2'
+            styles='w-full'
             error={errors.email ? errors.email.message : ""}
             />
 
             <TextInput
-            name="password" placeholder="Enter your password"
+            name="password" placeholder="Password"
             label="Password"
             type="password"
             register={register("password", {
               required: "Password is required",
             })}
-            styles='w-full rounded-full'
-            labelStyle='ml-2'
+            styles='w-full'
             error={errors.password ? errors.password.message : ""}
             />
 
-            <Link to='/reset-password' className='text-sm text-right text-[#1065A1] font-semibold'>Forgot Password?</Link>
+            <TextInput
+            name="confirmpassword" placeholder="Confirm Password"
+            label="Confirm Password"
+            type="password"
+            styles='w-full'
+            register={register("cPassword", {
+                validate: (value) => {
+                    const { password } = getValues();
+
+                    if (password != value) {
+                        return "Passwords do not match";
+                    }
+                },
+            })}
+            error={errors.cPassword && errors.cPassword.type === "validate"
+                ? errors.cPassword?.message : ""}
+            />  
 
             {errMsg?.message && (
                 <span className={`text-sm ${
@@ -73,27 +99,33 @@ const Signin = () => {
                   {errMsg?.message}
                 </span>
               )
-            }
+            } 
 
             {
               isSubmitting ? ( <Loading/> ) : <CustomButton 
               type= 'submit'
               containerStyles={`inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none`}
-              title='Sign In'/>
+              title='Sign Up' Navigate to="/"
+              />
             }
-          </form>
-
-          <p className='text-ascent-2 text-sm text-center'>Don't have an account?
-          <Link
-            to='/signup'
+             {/* <Link
+            to='/email-signup'
             className='text-[#1065A1] font-semibold ml-2 cursor-pointer'>
-              Sign Up
+              Continue with email
+            </Link> */}
+          </form>
+{/* 
+          <p className='text-ascent-2 text-sm text-center'>Already have an account?
+          <Link
+            to='/signin'
+            className='text-[#1065A1] font-semibold ml-2 cursor-pointer'>
+              Sign In
             </Link>
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
   )
 }
 
-export default Signin
+export default Signup

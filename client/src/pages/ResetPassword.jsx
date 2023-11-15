@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
-import { TextInput } from '../components';
+import { CustomButton, TextInput } from '../components';
 
 const ResetPassword = () => {
   const [errMsg, setErrMsg] = useState("");
@@ -36,6 +36,25 @@ className='py-4 flex flex-col gap-5'
         labelStyle='ml-2'
         error={errors.email ? errors.email.message : ""}
       />
+       {errMsg?.message && (
+                <span className={`text-sm ${
+                  errMsg?.status == "failed"
+                  ? "text-red-600"
+                  : "text-green-600"
+                } mt-0.5`}
+                >
+                  {errMsg?.message}
+                </span>
+          )
+        }
+
+        {
+          isSubmitting ? ( <Loading/> ) : <CustomButton 
+          type= 'submit'
+          containerStyles={`inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none`}
+          title='Send'
+          />
+        }
 </form>
       </div>
     </div>

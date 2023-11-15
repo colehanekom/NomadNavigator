@@ -75,12 +75,15 @@ const Signin = () => {
               )
             }
 
-            {
+            {/* {
               isSubmitting ? ( <Loading/> ) : <CustomButton 
               type= 'submit'
               containerStyles={`inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none`}
               title='Sign In'/>
-            }
+            } */}
+             <button className='inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none hover:scale-105'>
+              <Link to = '/home'> Sign In</Link>
+            </button>
           </form>
 
           <p className='text-ascent-2 text-sm text-center'>Don't have an account?

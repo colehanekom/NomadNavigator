@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import {Loading, CustomButton, TextInput} from "../components/";
 import Logo from '../assets/nomad-navigator-logo.png';
+import { FaGoogle } from 'react-icons/fa'; 
+
 
 const Signup = () => {
   const { 
@@ -80,11 +82,19 @@ const Signup = () => {
               title='Continue With email' Navigate to="/"
               />
             } */}
-             <Link
+             {/* <Link
             to='/email-signup'
             className='text-[#1065A1] font-semibold ml-2 cursor-pointer'>
               Continue with email
-            </Link>
+            </Link> */}
+            <button className='inline-flex justify-center items-center rounded-full bg-white px-8 py-3 text-sm font-medium text-black outline hover:scale-105'>
+            <FaGoogle className="mr-2" style={{ color: '#DB4437' }} /> {/* Set the color to Google's brand color */}
+            <Link to='/google'>Sign up with Google</Link>
+          </button>
+
+             <button className='inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none hover:scale-105'>
+              <Link to = '/email-signup'> Continue with email</Link>
+            </button>
           </form>
 
           <p className='text-ascent-2 text-sm text-center'>Already have an account?

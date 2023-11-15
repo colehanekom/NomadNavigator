@@ -4,8 +4,9 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import {Loading, CustomButton, TextInput} from "../components/";
 import Logo from '../assets/nomad-navigator-logo.png';
+import { IoIosArrowBack } from 'react-icons/io';
 
-const Signup = () => {
+const EmailSignup = () => {
   const { 
     register, handleSubmit, getValues, formState: {errors},
   } = useForm({
@@ -23,6 +24,13 @@ const Signup = () => {
   return (
     <div className='w-full h-[100vh] bg-slate-50 flex items-center justify-center p-6'>
       <div className='w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-white rounded-xl overflow-hidden shadow-xl '>
+          <Link to="/signup">
+              {/* Back button with arrow icon */}
+              <button className="text-[#1065A1] font-semibold flex items-center mt-5 ml-6">
+                <IoIosArrowBack className="mr-2" />
+                Back
+              </button>
+          </Link>
         {/* LEFT */}
         <div className='hidden w-1/2 h-full lg:flex flex-col items-center justify-center'>
           <div className='relative w-full flex items-center justify-center'>
@@ -108,24 +116,11 @@ const Signup = () => {
               title='Sign Up' Navigate to="/"
               />
             }
-             {/* <Link
-            to='/email-signup'
-            className='text-[#1065A1] font-semibold ml-2 cursor-pointer'>
-              Continue with email
-            </Link> */}
           </form>
-{/* 
-          <p className='text-ascent-2 text-sm text-center'>Already have an account?
-          <Link
-            to='/signin'
-            className='text-[#1065A1] font-semibold ml-2 cursor-pointer'>
-              Sign In
-            </Link>
-          </p> */}
         </div>
       </div>
     </div>
   )
 }
 
-export default Signup
+export default EmailSignup

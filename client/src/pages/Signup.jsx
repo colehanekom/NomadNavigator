@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import {Loading, CustomButton, TextInput} from "../components/";
 import Logo from '../assets/nomad-navigator-logo.png';
 import { FaGoogle } from 'react-icons/fa'; 
 
@@ -19,7 +18,6 @@ const Signup = () => {
   }
 
   const [errMsg, setErrMsg] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
 
   return (
@@ -39,56 +37,9 @@ const Signup = () => {
           </div>
           <form className="py-8 flex flex-col gap-5" 
           onSubmit={handleSubmit(onSubmit)}>
-            {/* <TextInput
-            name="email" placeholder="Enter your email"
-            label="Email Address"
-            type="email"
-            register={register("email", {
-              required: "Email Address is required",
-            })}
-            styles='w-full rounded-full'
-            labelStyle='ml-2'
-            error={errors.email ? errors.email.message : ""}
-            />
-
-            <TextInput
-            name="password" placeholder="Enter your password"
-            label="Password"
-            type="password"
-            register={register("password", {
-              required: "Password is required",
-            })}
-            styles='w-full rounded-full'
-            labelStyle='ml-2'
-            error={errors.password ? errors.password.message : ""}
-            />
-
-            {errMsg?.message && (
-                <span className={`text-sm ${
-                  errMsg?.status == "failed"
-                  ? "text-red-600"
-                  : "text-green-600"
-                } mt-0.5`}
-                >
-                  {errMsg?.message}
-                </span>
-              )
-            } */}
-
-            {/* {
-              isSubmitting ? ( <Loading/> ) : <CustomButton 
-              type= 'submit'
-              containerStyles={`inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none`}
-              title='Continue With email' Navigate to="/"
-              />
-            } */}
-             {/* <Link
-            to='/email-signup'
-            className='text-[#1065A1] font-semibold ml-2 cursor-pointer'>
-              Continue with email
-            </Link> */}
+         
             <button className='inline-flex justify-center items-center rounded-full bg-white px-8 py-3 text-sm font-medium text-black outline hover:scale-105'>
-            <FaGoogle className="mr-2" style={{ color: '#DB4437' }} /> {/* Set the color to Google's brand color */}
+            <FaGoogle className="mr-2" style={{ color: '#DB4437' }} /> 
             <Link to='/google'>Sign up with Google</Link>
           </button>
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import {Loading, CustomButton, TextInput} from "../components/";
+import { TextInput } from "../components/";
 import Logo from '../assets/nomad-navigator-logo.png';
 import { IoIosArrowBack } from 'react-icons/io';
 
@@ -18,7 +18,6 @@ const EmailSignup = () => {
   }
 
   const [errMsg, setErrMsg] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
 
   return (
@@ -26,7 +25,7 @@ const EmailSignup = () => {
       <div className='w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-white rounded-xl overflow-hidden shadow-xl '>
           <Link to="/signup">
               {/* Back button with arrow icon */}
-              <button className="text-[#1065A1] font-semibold flex items-center mt-5 ml-6">
+              <button className="text-black font-semibold flex items-center mt-5 ml-6">
                 <IoIosArrowBack className="mr-2" />
                 Back
               </button>
@@ -109,13 +108,10 @@ const EmailSignup = () => {
               )
             } 
 
-            {
-              isSubmitting ? ( <Loading/> ) : <CustomButton 
-              type= 'submit'
-              containerStyles={`inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none`}
-              title='Sign Up' Navigate to="/"
-              />
-            }
+            <button className='inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none hover:scale-105'>
+              <Link to = '//'> Sign Up</Link>
+            </button>
+
           </form>
         </div>
       </div>

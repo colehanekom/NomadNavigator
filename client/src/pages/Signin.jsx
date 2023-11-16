@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import {Loading, CustomButton, TextInput} from "../components/";
+import { TextInput } from "../components/";
 import Logo from '../assets/nomad-navigator-logo.png';
 
 const Signin = () => {
@@ -17,7 +17,6 @@ const Signin = () => {
   }
 
   const [errMsg, setErrMsg] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
 
   return (
@@ -75,12 +74,6 @@ const Signin = () => {
               )
             }
 
-            {/* {
-              isSubmitting ? ( <Loading/> ) : <CustomButton 
-              type= 'submit'
-              containerStyles={`inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none`}
-              title='Sign In'/>
-            } */}
              <button className='inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none hover:scale-105'>
               <Link to = '/home'> Sign In</Link>
             </button>

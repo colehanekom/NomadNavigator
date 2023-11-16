@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
-import { CustomButton, TextInput } from '../components';
+import { TextInput } from '../components';
+import { Link } from 'react-router-dom';
 
 const ResetPassword = () => {
   const [errMsg, setErrMsg] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { 
     register, handleSubmit, formState: {errors},
@@ -48,13 +48,9 @@ className='py-4 flex flex-col gap-5'
           )
         }
 
-        {
-          isSubmitting ? ( <Loading/> ) : <CustomButton 
-          type= 'submit'
-          containerStyles={`inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none`}
-          title='Send'
-          />
-        }
+        <button className='inline-flex bg-[#1065A1] justify-center items-center rounded-full px-8 py-3 text-sm font-medium text-white hover:scale-105'>
+            <Link to='/'>Send</Link>
+        </button>
 </form>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { TextInput } from "../components/";
 import Logo from '../assets/nomad-navigator-logo.png';
+import googleLogo from '../assets/googlelogo.svg';
 
 const Signin = () => {
   const { 
@@ -77,8 +78,24 @@ const Signin = () => {
              <button className='inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none hover:scale-105'>
               <Link to = '/home'> Sign In</Link>
             </button>
+
+            <div className='mt-3 grid grid-cols-3 items-center text-black'>
+            <hr className='border-black'/>
+            <p className='text-center'>OR</p>
+            <hr className='border-black'/>
+           </div>
+
+           <button className='inline-flex justify-center items-center rounded-full bg-white px-8 py-3 text-sm font-medium text-black outline hover:scale-105'>
+          <Link to='/google'>
+            <div className="flex items-center">
+              <img src={googleLogo} alt="Google Logo" className="w-5 h-5 mr-2" /> 
+              Sign up with Google
+            </div>
+          </Link>
+        </button>
           </form>
 
+          <div>
           <p className='text-ascent-2 text-sm text-center'>Don't have an account?
           <Link
             to='/signup'
@@ -86,6 +103,7 @@ const Signin = () => {
               Sign Up
             </Link>
           </p>
+          </div>
         </div>
       </div>
     </div>

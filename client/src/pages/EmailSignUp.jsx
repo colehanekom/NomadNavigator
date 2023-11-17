@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import {Loading, CustomButton, TextInput} from "../components/";
+import { TextInput } from "../components/";
 import Logo from '../assets/nomad-navigator-logo.png';
+import { IoIosArrowBack } from 'react-icons/io';
 
-const Signup = () => {
+const EmailSignup = () => {
   const { 
     register, handleSubmit, getValues, formState: {errors},
   } = useForm({
@@ -17,12 +18,18 @@ const Signup = () => {
   }
 
   const [errMsg, setErrMsg] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
 
   return (
     <div className='w-full h-[100vh] bg-slate-50 flex items-center justify-center p-6'>
       <div className='w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-white rounded-xl overflow-hidden shadow-xl '>
+          <Link to="/signup">
+              {/* Back button with arrow icon */}
+              <button className="text-black font-semibold flex items-center mt-5 ml-6">
+                <IoIosArrowBack className="mr-2" />
+                Back
+              </button>
+          </Link>
         {/* LEFT */}
         <div className='hidden w-1/2 h-full lg:flex flex-col items-center justify-center'>
           <div className='relative w-full flex items-center justify-center'>
@@ -33,7 +40,7 @@ const Signup = () => {
         {/* RIGHT */}
         <div className='w-full lg:w-1/2 h-full p-10 2xl:px-20 flex flex-col justify-center'>  
           <div className='w-full flex gap-2 items-center mb-6'>
-            <span className='text-4xl font-semibold'>Sign Up</span>
+            <span className='text-4xl font-semibold'>Sign up with email</span>
           </div>
 
           <form className="py-8 flex flex-col gap-5" 
@@ -101,31 +108,15 @@ const Signup = () => {
               )
             } 
 
-            {
-              isSubmitting ? ( <Loading/> ) : <CustomButton 
-              type= 'submit'
-              containerStyles={`inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none`}
-              title='Sign Up' Navigate to="/"
-              />
-            }
-             {/* <Link
-            to='/email-signup'
-            className='text-[#1065A1] font-semibold ml-2 cursor-pointer'>
-              Continue with email
-            </Link> */}
+            <button className='inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none hover:scale-105'>
+              <Link to = '//'> Sign Up</Link>
+            </button>
+
           </form>
-{/* 
-          <p className='text-ascent-2 text-sm text-center'>Already have an account?
-          <Link
-            to='/signin'
-            className='text-[#1065A1] font-semibold ml-2 cursor-pointer'>
-              Sign In
-            </Link>
-          </p> */}
         </div>
       </div>
     </div>
   )
 }
 
-export default Signup
+export default EmailSignup

@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import {Loading, CustomButton, TextInput} from "../components/";
 import Logo from '../assets/nomad-navigator-logo.png';
+import { FaGoogle } from 'react-icons/fa'; 
+import googleLogo from '../assets/googlelogo.svg';
+
+
 
 const Signup = () => {
   const { 
@@ -17,7 +20,6 @@ const Signup = () => {
   }
 
   const [errMsg, setErrMsg] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
 
   return (
@@ -33,58 +35,29 @@ const Signup = () => {
         {/* RIGHT */}
         <div className='w-full lg:w-1/2 h-full p-10 2xl:px-20 flex flex-col justify-center'>  
           <div className='w-full flex gap-2 items-center mb-6'>
-            <span className='text-4xl font-semibold'>Sign Up</span>
+            <span className='text-4xl font-semibold mb-10'>Sign Up</span>
           </div>
           <form className="py-8 flex flex-col gap-5" 
           onSubmit={handleSubmit(onSubmit)}>
-            {/* <TextInput
-            name="email" placeholder="Enter your email"
-            label="Email Address"
-            type="email"
-            register={register("email", {
-              required: "Email Address is required",
-            })}
-            styles='w-full rounded-full'
-            labelStyle='ml-2'
-            error={errors.email ? errors.email.message : ""}
-            />
+         
+         <button className='inline-flex justify-center items-center rounded-full bg-white px-8 py-3 text-sm font-medium text-black outline hover:scale-105'>
+          <Link to='/google'>
+            <div className="flex items-center">
+              <img src={googleLogo} alt="Google Logo" className="w-5 h-5 mr-2" /> 
+              Sign up with Google
+            </div>
+          </Link>
+        </button>
 
-            <TextInput
-            name="password" placeholder="Enter your password"
-            label="Password"
-            type="password"
-            register={register("password", {
-              required: "Password is required",
-            })}
-            styles='w-full rounded-full'
-            labelStyle='ml-2'
-            error={errors.password ? errors.password.message : ""}
-            />
+          <div className='m-10 grid grid-cols-3 items-center text-black'>
+            <hr className='border-black'/>
+            <p className='text-center'>OR</p>
+            <hr className='border-black'/>
+           </div>
 
-            {errMsg?.message && (
-                <span className={`text-sm ${
-                  errMsg?.status == "failed"
-                  ? "text-red-600"
-                  : "text-green-600"
-                } mt-0.5`}
-                >
-                  {errMsg?.message}
-                </span>
-              )
-            } */}
-
-            {/* {
-              isSubmitting ? ( <Loading/> ) : <CustomButton 
-              type= 'submit'
-              containerStyles={`inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none`}
-              title='Continue With email' Navigate to="/"
-              />
-            } */}
-             <Link
-            to='/email-signup'
-            className='text-[#1065A1] font-semibold ml-2 cursor-pointer'>
-              Continue with email
-            </Link>
+            <button className='inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none hover:scale-105'>
+              <Link to = '/email-signup'> Continue with email</Link>
+            </button>
           </form>
 
           <p className='text-ascent-2 text-sm text-center'>Already have an account?

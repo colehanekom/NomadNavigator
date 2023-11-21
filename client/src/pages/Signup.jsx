@@ -34,7 +34,7 @@ const Signup = () => {
        
         {/* RIGHT */}
         <div className='w-full lg:w-1/2 h-full p-10 2xl:px-20 flex flex-col justify-center'>  
-          <div className='w-full flex gap-2 items-center mb-6'>
+          <div className='w-full flex gap-2 justify-center mb-6'>
             <span className='text-4xl font-semibold mb-10'>Sign Up</span>
           </div>
           <form className="py-8 flex flex-col gap-5" 

@@ -49,7 +49,7 @@ className='py-4 flex flex-col gap-5'
         }
 
         <button className='inline-flex bg-[#1065A1] justify-center items-center rounded-full px-8 py-3 text-sm font-medium text-white hover:scale-105'>
-            <Link to='/'>Send</Link>
+            <Link to='/'></Link> Send
         </button>
 </form>
       </div>

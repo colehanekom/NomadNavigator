@@ -109,7 +109,7 @@ const EmailSignup = () => {
             } 
 
             <button className='inline-flex justify-center rounded-full bg-[#1065A1] px-8 py-3 text-sm font-medium text-white outline-none hover:scale-105'>
-              <Link to = '//'> Sign Up</Link>
+              <Link to = '//'> </Link>  Sign Up
             </button>
 
           </form>

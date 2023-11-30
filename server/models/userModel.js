@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema(
         userName: {
             type: String, 
             required: [true, "Username is required"],
+            unique: true,
         },
         email: {
             type: String,
@@ -18,6 +19,7 @@ const userSchema = new mongoose.Schema(
             minlength: [6, "Password length should be more than 6 characters"],
             select: true,
         },
+        verified: {type: Boolean, default: false},
     },
     {timestamps: true}
 );

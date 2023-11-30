@@ -1,5 +1,5 @@
 import Users from "../models/userModel.js";
-import { hashString } from "../utils/index.js";
+import { compareString, createJWT, hashString } from "../utils/index.js";
 import { sendVerificationEmail } from "../utils/sendEmail.js";
 
 export const register = async (req, res, next) => {
@@ -12,6 +12,13 @@ export const register = async (req, res, next) => {
     }
 
     try{
+        const usernameExist = await Users.findOne({userName});
+
+            if(usernameExist) {
+                next("Username already exists");
+                return;
+            }
+
         const userExist = await Users.findOne({email});
 
             if(userExist) {
@@ -47,6 +54,8 @@ export const login = async (req, res, next) => {
 
         //find user by email
         const user = await Users.findOne({email}).select("+password").populate({
+            path: "userName",
+            select: "userName -password",
         });
 
         if(!user){
@@ -55,7 +64,7 @@ export const login = async (req, res, next) => {
         }
 
         if(!user?.verified){
-            next("User email is not verified. Check your email acount and verify your email");
+            next("User email is not verified. Please check your email acount and verify your email");
             return;
         }
 

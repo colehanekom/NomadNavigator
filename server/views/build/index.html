@@ -76,7 +76,7 @@
 
        //Display content and set background color
        if(status === 'success') {
-        statusIcon.innerHTML = 'correct';
+        statusIcon.innerHTML = '✔';
         statusMessage.textContent = message;
         card.classList.add('success');
         statusIcon.classList.add('success');
@@ -84,7 +84,7 @@
         btn.classList.add('showBtn');
 
        } else if (status === 'error') {
-        statusIcon.innerHTML = 'wrong';
+        statusIcon.innerHTML = '✘'; 
         statusMessage.textContent = message;
         card.classList.add('error');
         statusIcon.classList.add('error');

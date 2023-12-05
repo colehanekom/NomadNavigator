@@ -16,7 +16,7 @@ router.get("/verified", (req, res) => {
 });
 
 router.get("/resetpassword", (req, res) => {
-    res.sendFile(path.join(__dirname, "./views/build", "index.html"));
+    res.sendFile(path.join(__dirname, "./views/build", "passwordreset.html")); 
 });
 
 export default router;

@@ -95,12 +95,12 @@ export const resetPasswordLink = async (user, res) => {
         from: AUTH_EMAIL,
         to: email,
         subject: "Password Reset",
-        html: `<p style="font-family: Arial, sans-serif; font-size:16px; color:#333;background-color: #fff;">
+        html: `<p style="font-family: Arial, sans-serif; font-size:16px; color:#333;background-color: #f7f7f7; padding: 20px; border-radius: 5px;">
                 Password reset link. Please click the link below to reset password.
                 <br>
                 <p style ="font-size: 18px;"><b>This link expires in 10 minutes!</b></p>
                 <br>
-                <a href=${link} style="color:#fff; padding:10px; text-decoration:none; background-color: #000;">Reset Password</a>
+                <a href=${link} style="color:#fff; padding:10px; text-decoration:none; background-color: #000; border-radius: 8px; font-size: 18px;">Reset Password</a>
                 </p>`,
     };
 

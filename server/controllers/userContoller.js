@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import Verification from "../models/emailVerification.js";
 import { compareString, hashString } from "../utils/index.js";
 import Users from "../models/userModel.js";
-import PasswordReset from "../models/passwordReset.js";
+import PasswordReset from "../models/PasswordReset.js";
 import { resetPasswordLink } from "../utils/sendEmail.js";
 
 export const verifyEmail = async (req, res) => {
@@ -99,7 +99,7 @@ export const requestPasswordReset = async (req, res) => {
     }
 }
 
-export const resetpassword = async (req, res) => {
+export const resetPassword = async (req, res) => {
     const {userId, token} = req.params;
 
     try {

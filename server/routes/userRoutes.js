@@ -1,6 +1,6 @@
 import express from "express";
 import path from "path";
-import { changePassword, requestPasswordReset, resetpassword, verifyEmail } from "../controllers/userContoller.js";
+import { changePassword, requestPasswordReset, resetPassword, verifyEmail } from "../controllers/userContoller.js";
 
 const router = express.Router();
 const __dirname = path.resolve(path.dirname(""));
@@ -8,7 +8,7 @@ const __dirname = path.resolve(path.dirname(""));
 router.get("/verify/:userId/:token", verifyEmail);
 //Password Reset
 router.post("/request-passwordreset", requestPasswordReset);
-router.get("/reset-password/:userId/:token", resetpassword);
+router.get("/reset-password/:userId/:token", resetPassword);
 router.post("/reset-password", changePassword);
 
 router.get("/verified", (req, res) => {

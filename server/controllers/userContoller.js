@@ -153,9 +153,7 @@ export const changePassword = async (req, res) => {
             if(user){
                 await PasswordReset.findOneAndDelete({userId});
 
-                const message = "Password successfully reset.";
-                res.redirect(`/users/resetpassword?status=success&message=${message}`);
-                return;
+                res.status(200).json({ok:true});
             }
     } catch (error) {
         console.log(error);

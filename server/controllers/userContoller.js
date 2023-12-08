@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Verification from "../models/emailVerification.js";
-import { compareString, hashString } from "../utils/index.js";
+import { compareString, createJWT, hashString } from "../utils/index.js";
 import Users from "../models/userModel.js";
 import PasswordReset from "../models/PasswordReset.js";
 import { resetPasswordLink } from "../utils/sendEmail.js";
@@ -139,7 +139,7 @@ export const resetPassword = async (req, res) => {
     }
 };
 
-export const changePassword = async (req, res) => {
+export const changePassword = async (req, res, next) => {
     try {
         const {userId, password} = req.body;
 
@@ -155,6 +155,62 @@ export const changePassword = async (req, res) => {
 
                 res.status(200).json({ok:true});
             }
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({message: error.message});
+    }
+};
+
+export const getUser = async (req, res, next) => {
+    try {
+       const {userId} = req.body.user;
+       const{id} = req.params;
+
+       const user = await Users.findById(id ?? userId).populate({
+        path: "userName",
+        select: "-password",
+       })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: "auth error", 
+            success: false,
+            error: error.message,
+        });
+    }
+};
+
+export const updateUser = async (req, res, next) => {
+    try {
+        const {userName} = req.body;
+
+        if(!(userName)){
+            next("Please provide all required fields");
+            return;
+        }
+
+        const {userId} = req.body.user;
+
+        const updateUser = {
+            userName,
+            _id: userId,
+        };
+
+        const user = await Users.findByIdAndUpdate(userId, updateUser, {
+            new: true,
+        });
+
+        await user.populate({path: "userName",select: "-password"});
+        const token = createJWT(user?._id);
+
+        user.password = undefined;
+
+        res.status(200).json({
+            success: true,
+            message: "User updated successfully",
+            user,
+            token,
+        });
     } catch (error) {
         console.log(error);
         res.status(404).json({message: error.message});

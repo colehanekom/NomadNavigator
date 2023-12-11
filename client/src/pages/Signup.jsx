@@ -34,13 +34,13 @@ const Signup = () => {
        
         {/* RIGHT */}
         <div className='w-full lg:w-1/2 h-full p-10 2xl:px-20 flex flex-col justify-center'>  
-          <div className='w-full flex gap-2 items-center mb-6'>
+          <div className='w-full flex gap-2 justify-center mb-6'>
             <span className='text-4xl font-semibold mb-10'>Sign Up</span>
           </div>
           <form className="py-8 flex flex-col gap-5" 
           onSubmit={handleSubmit(onSubmit)}>
          
-         <button className='inline-flex justify-center items-center rounded-full bg-white px-8 py-3 text-sm font-medium text-black outline hover:scale-105'>
+         <button className='inline-flex justify-center items-center rounded-full bg-white px-8 py-3 text-sm font-medium text-black border border-gray-300 hover:scale-105'>
           <Link to='/google'>
             <div className="flex items-center">
               <img src={googleLogo} alt="Google Logo" className="w-5 h-5 mr-2" /> 

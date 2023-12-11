@@ -169,7 +169,21 @@ export const getUser = async (req, res, next) => {
        const user = await Users.findById(id ?? userId).populate({
         path: "userName",
         select: "-password",
-       })
+       });
+
+       if(!user){
+        return res.status(200).send({
+            message: "User not found",
+            success: false,
+        });
+       }
+
+       user.password = undefined;
+
+       res.status(200).json({
+        success: true, 
+        user: user,
+       });
     } catch (error) {
         console.log(error);
         res.status(500).json({

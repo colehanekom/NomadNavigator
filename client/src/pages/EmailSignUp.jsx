@@ -5,8 +5,13 @@ import { useForm } from 'react-hook-form';
 import { TextInput } from "../components/";
 import Logo from '../assets/nomad-navigator-logo.png';
 import { IoIosArrowBack } from 'react-icons/io';
+import { apiRequest } from '../utils';
 
 const EmailSignup = () => {
+  const [errMsg, setErrMsg] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const dispatch = useDispatch();
+  
   const { 
     register, handleSubmit, getValues, formState: {errors},
   } = useForm({
@@ -14,11 +19,28 @@ const EmailSignup = () => {
   });
 
   const onSubmit = async(data) => {
-
-  }
-
-  const [errMsg, setErrMsg] = useState("");
-  const dispatch = useDispatch();
+    setIsSubmitting(true);
+    try {
+      const res = await apiRequest({
+        url: "/auth/register",
+        data: data,
+        method: "POST",
+      });
+  
+      if(res?.status === "failed") {
+        setErrMsg(res);
+      } else {
+        setErrMsg(res);
+        setTimeout(() => {
+          window.location.replace("/signin");
+        }, 5000);
+      }
+      setIsSubmitting(false);
+    } catch (error) {
+      console.log(error);
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className='w-full h-[100vh] bg-slate-50 flex items-center justify-center p-6'>

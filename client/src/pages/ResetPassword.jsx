@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import { TextInput } from '../components';
 import { Link } from 'react-router-dom';
+import { apiRequest } from '../utils';
 
 const ResetPassword = () => {
   const [errMsg, setErrMsg] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
 
   const { 
     register, handleSubmit, formState: {errors},
@@ -13,8 +16,27 @@ const ResetPassword = () => {
   });
 
   const onSubmit = async(data) => {
+    setIsSubmitting(true);
 
-  }
+    try{
+      const res = await apiRequest({
+        url: "/users/request-passwordreset",
+        data: data,
+        method: "POST",
+      });
+
+      if(res?.status === "failed"){
+        setErrMsg(res);
+      } else {
+        setErrMsg(res);
+      }
+      setIsSubmitting(false);
+    }
+      catch(error){
+        console.log(error);
+        setIsSubmitting(false);
+      }
+    };
 
   return (
     <div className='w-full h-[100vh] bg-slate-200 flex items-center justify-center p-6'>

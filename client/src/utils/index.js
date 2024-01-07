@@ -1,4 +1,5 @@
 import axios from "axios";
+import { SetPosts } from "../redux/postSlice";
 
 const API_URL = "http://localhost:8800";
 
@@ -27,8 +28,9 @@ export const apiRequest = async ({ url,token,data,method}) => {
 };
 
 export const handleFileUpload = async (uploadFile) => {
+   const formData = new FormData();
     formData.append("file", uploadFile);
-    formData.append("upload_present", "Nomad Navigator");
+    formData.append("upload_preset", "Nomad Navigator");
 
     try {
         const response = await axios.post(
@@ -40,6 +42,49 @@ export const handleFileUpload = async (uploadFile) => {
         console.log(error);
     }
 }
+
+export const fetchPosts = async (token, dispatch, uri, data) => {
+    try {
+        const res = await apiRequest ({
+            url: uri || "/posts",
+            token: token,
+            method: "POST",
+            data: data || {},
+        });
+        
+        dispatch(SetPosts(res?.data));
+        return;
+
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const likePost = async ({ uri, token}) => {
+    try {
+        const res = await apiRequest ({
+            url: uri,
+            token: token,
+            method: "POST",
+        });
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const deletePost = async (id, token) => {
+    try {
+        const res = await apiRequest ({
+            url: "/posts/" + id,
+            token: token,
+            method: "DELETE",
+        });
+        return;
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 export const getUserInfo = async (token, id) => {
     try {
@@ -54,10 +99,24 @@ export const getUserInfo = async (token, id) => {
         if(res?.message === "Authentication failed"){
             localStorage.removeItem("user");
             window.alert("User session expired. Login again.");
-            window.location.replace("/login");
+            window.location.replace("/signin");
         }
         return res?.user;
     } catch (error) {
         console.log(error);
     }
-}
+};
+
+export const sendFriendRequest = async (token,id) => {
+    try {
+        const res = await apiRequest ({
+            url: "/users/friend-request",
+            token: token,
+            method: "POST",
+            data: {requestTo: id},
+        });
+        return;
+    } catch (error) {
+        console.log(error);
+    }
+};

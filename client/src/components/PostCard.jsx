@@ -20,7 +20,7 @@ const getPostComments = async (id) => {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const ReplyCard = ({ reply, user, handleLike }) => {
   return (

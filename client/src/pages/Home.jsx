@@ -88,7 +88,7 @@ const Home = () => {
   const fetchSuggestedFriends = async() => {
    try {
       const res = await apiRequest({
-        url: "/users/suggested-friends",
+        url: "/users/suggested",
         token: user?.token,
         method: "POST",
       });

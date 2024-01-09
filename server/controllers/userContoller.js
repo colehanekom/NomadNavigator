@@ -368,7 +368,7 @@ export const acceptRequest = async (req, res, next) => {
     
         let queryResult = Users.find(queryObject)
           .limit(15)
-          .select("userName profileUrl bio -password");
+          .select("userName profileUrl -password");
     
         const suggestedFriends = await queryResult;
     

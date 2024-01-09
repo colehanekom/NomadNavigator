@@ -113,6 +113,7 @@ const Home = () => {
         url: "/users/accept-request",
         token: user?.token,
         method: "POST",
+        data:{rid: id, status},
       });
       setFriendRequest(res?.data);
     } catch (error) {
@@ -232,7 +233,7 @@ const Home = () => {
 
               <div className='w-full flex flex-col gap-4 pt-4'>
                 {
-                  []?.map(({_id, requestFrom: from}) => (
+                  friendRequest?.map(({ _id, requestFrom: from }) => (
                     <div key={_id} className='flex items-center justify-between'>
                       <Link to={"/profile/" + from._id} className='w-full flex gap-4 items-center cursor-pointer'>
                         <img src={from?.profileUrl ?? NoProfile} alt={from?.userName} className='w-10 h-10 object-cover rounded-full'/>
@@ -269,7 +270,7 @@ const Home = () => {
                 {
                   suggestedFriends?.map((friend) => (
                     <div className='flex items-center justify-between' key={friend._id}>
-                      <Link to={"/profile/" + friend._id} className='w-full flex gap-4 items-center cursor-pointer'>
+                      <Link to={"/profile/" + friend?._id }  key={friend?._id} className='w-full flex gap-4 items-center cursor-pointer'>
                         <img src={friend?.profileUrl ?? NoProfile} alt={friend?.userName} className='w-10 h-10 object-cover rounded-full'/>
                         <div className='flex-1 '>
                           <p className='text-base font-medium text-ascent-1'>
@@ -280,8 +281,8 @@ const Home = () => {
 
                       <div className='flex gap-1'>
                         <button className='bg-white text-sm text-white p-1 rounded'
-                         onClick={() => handleFriendRequest(friend._id)}>
-                          <BsPersonFillAdd size={20} className='text-blue-600'/>
+                         onClick={() => handleFriendRequest(friend?._id)}>
+                            <BsPersonFillAdd size={20} className='text-[#0f52b6]' />
                         </button>
                       </div>
                     </div>

@@ -24,4 +24,4 @@ const TextInput = React.forwardRef(
   ); 
 });
 
-export default TextInput
+export default TextInput;

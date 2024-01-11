@@ -66,7 +66,7 @@ const ReplyCard = ({ reply, user, handleLike }) => {
   );
 };
 
-const CommentForm = (user, id, replyAt, getComments) => {
+const CommentForm = ({user, id, replyAt, getComments}) => {
   const [loading, setLoading] = useState(false);
   const [errMsg, setErrMsg] = useState("");
   const {register, handleSubmit, reset, 

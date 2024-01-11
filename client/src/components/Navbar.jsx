@@ -12,15 +12,9 @@ function Navbar() {
     <ul className='flex px-10 space-x-4'>
     <Link to = '/signin'>Sign In</Link>
     <Link to = '/signup'>Sign Up</Link>
-      {/* <li>
-        <a href='/signup'>Sign Up</a>
-      </li>
-      <li>
-        <a href='/signin'>Sign In</a>
-      </li> */}
     </ul>
   </div>
   )
 }
 
-export default Navbar
+export default Navbar;

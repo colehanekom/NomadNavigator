@@ -24,7 +24,7 @@ const Signin = () => {
     
     try {
       const res = await apiRequest({
-        url: "/auth/login",
+        url: "/auth/signin",
         data: data,
         method: "POST",
       });

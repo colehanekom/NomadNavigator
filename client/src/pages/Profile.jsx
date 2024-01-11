@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
+  EditProfile,
   FriendsCard,
   Loading,
   PostCard,
@@ -13,7 +14,7 @@ import { deletePost, fetchPosts, getUserInfo } from "../utils";
 const Profile = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.user);
+  const { user, edit} = useSelector((state) => state.user);
   const { posts } = useSelector((state) => state.posts);
   const [userInfo, setUserInfo] = useState(user);
   const [loading, setLoading] = useState(false);
@@ -87,6 +88,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      {edit && <EditProfile />}
     </>
   );
 };

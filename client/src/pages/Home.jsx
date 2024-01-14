@@ -30,7 +30,7 @@ const Home = () => {
     try {
       const uri = file && (await handleFileUpload(file));
 
-      const newData = uri ? { ...data,image:uri} : data;
+      const newData = uri ? { ...data, image: uri} : data;
 
       const res = await apiRequest({
         url: "/posts/create-post",

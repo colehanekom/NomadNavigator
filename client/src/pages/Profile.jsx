@@ -49,7 +49,7 @@ const Profile = () => {
 
   return (
     <>
-      <div className='w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-sky-300 lg:rounded-lg h-screen overflow-hidden'>
+      <div className='w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-gradient-to-r from-[#1065A1] via-[#0693F9] to-[#6f9fb8] lg:rounded-lg h-screen overflow-hidden'>
         <TopBar />
         <div className='w-full flex gap-2 lg:gap-4 md:pl-4 pt-5 pb-10 h-full'>
           {/* LEFT */}

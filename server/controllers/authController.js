@@ -54,8 +54,8 @@ export const login = async (req, res, next) => {
 
         //find user by email
         const user = await Users.findOne({email}).select("+password").populate({
-            path: "userName",
-            select: "userName -password",
+            path: "friends",
+            select: "userName location profileUrl -password",
         });
 
         if(!user){

@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema(
             minlength: [6, "Password length should be more than 6 characters"],
             select: true,
         },
+        location: {type: String},
+        profileUrl: {type: String},
+        bio: {type: String},
+        friends: [{type: Schema.Types.ObjectId, ref: "Users"}],
         verified: {type: Boolean, default: false},
     },
     {timestamps: true}

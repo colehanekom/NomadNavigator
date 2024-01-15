@@ -54,7 +54,7 @@ const TopBar = () => {
             title='Sign Out'
             containerStyles='text-sm  text-ascent-1 px-4 md:px-6 py-1 md:py-2 border border-[#666] rounded-full'
           /> */}
-           <Link to='/signin' onClick={() => dispatch(Logout())} className="text-sm  text-ascent-1 px-4 md:px-6 py-1 md:py-2 border border-[#202a63] rounded-full">Sign Out</Link>
+           <Link to='/signin' onClick={() => dispatch(Logout())} className="text-sm  text-white px-4 md:px-6 py-1 md:py-2 bg-[#065ad8] rounded-full">Sign Out</Link>
         </div>
     </div>
   );

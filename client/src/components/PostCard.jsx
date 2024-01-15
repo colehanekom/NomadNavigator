@@ -200,9 +200,9 @@ const PostCard = ({post, user, deletePost, likePost}) => {
 
           {post?.description?.length > 301 &&
           (showAll === post?._id ? (
-            <span className='text-blue ml-2 font-medium cursor-pointer' onClick={() => setShowAll(0)}>Show Less</span>
+            <span className='text-[#065ad8] ml-2 font-medium cursor-pointer' onClick={() => setShowAll(0)}>Show Less</span>
           ) : (
-            <span className='text-blue ml-2 font-medium cursor-pointer' onClick={() => setShowAll(post?._id)}>Show More</span>
+            <span className='text-[#065ad8] ml-2 font-medium cursor-pointer' onClick={() => setShowAll(post?._id)}>Show More</span>
           ))}
         </p>
 

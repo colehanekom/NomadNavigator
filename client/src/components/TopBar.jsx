@@ -22,7 +22,7 @@ const TopBar = () => {
   };
 
   return (
-    <div className='topbar w-full flex items-center justify-between py-3 md:py-6 px-4 bg-white'>
+    <div className='w-full flex items-center justify-between py-3 md:py-6 px-4 bg-white'>
       <Link to='/home' className='flex gap-2 items-center'>
          <div className='sm:flex'>
       <img src={Logo} alt="Logo Image" className='w-[80px] lg:ml-8'/>
@@ -44,7 +44,7 @@ const TopBar = () => {
         <CustomButton
           title='Search'
           type='submit'
-          containerStyles='bg-[#0444a4] text-white px-6 py-2.5 mt-2 rounded-r-full'
+          containerStyles='bg-[#065ad8] text-white px-6 py-2.5 mt-2 rounded-r-full'
         />
       </form>
 

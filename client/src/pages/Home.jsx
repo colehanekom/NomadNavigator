@@ -8,6 +8,7 @@ import {BiImages, BiSolidVideo} from "react-icons/bi";
 import {useForm} from "react-hook-form";
 import { apiRequest, deletePost, fetchPosts, getUserInfo, handleFileUpload, likePost, sendFriendRequest } from '../utils/index.js';
 import { UserLogin } from '../redux/userSlice.js';
+import Tooltip from '../components/Tooltip.jsx';
 
 const Home = () => {
   const {user, edit} = useSelector((state) => state.user);
@@ -137,9 +138,10 @@ const Home = () => {
 
   return (
    <>
-    <div className='w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-sky-300 lg:rounded-lg h-screen overflow-hidden'>
+    <div className='w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-gradient-to-r from-[#1065A1] via-[#0693F9] to-[#6f9fb8] lg:rounded-lg h-screen overflow-hidden'>
         <TopBar/>
         <div className='w-full flex gap-2 lg:gap-4 pt-5 pb-10 h-full'>
+          
           {/* LEFT */}
           <div className='hidden w-1/3 lg:w-1/4 h-full md:flex flex-col gap-6 overflow-y-auto'>
             <ProfileCard user={user} />
@@ -158,7 +160,10 @@ const Home = () => {
                 register={register("description", {
                   required: "Write something about the post",
                 })} 
-                error={errors.description ? errors.description.message : ""} />
+                error={errors.description ? errors.description.message : ""} 
+                tooltipText="
+                Elevate your post with location details, images, and travel costs. Describe cultural significance, list must-visit places, and rate transportation options for a comprehensive experience!" 
+                />
               </div>
               {errMsg?.message && (
                 <span 
@@ -253,7 +258,7 @@ const Home = () => {
                       <CustomButton
                         title="Deny"
                         onClick={() => acceptFriendRequests(_id, "Denied")}
-                        containerStyles="rounded-full bg-red px-1.5 py-1 text-xs text-white" />
+                        containerStyles="rounded-full bg-black px-1.5 py-1 text-xs text-white" />
                       </div>
                     </div>
                   ))

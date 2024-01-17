@@ -15,10 +15,9 @@ function Layout(){
 }
 
 function App() {
-  const { theme } = useSelector((state) => state.theme);
 
   return (
-      <div data-theme={theme}>
+      <div>
        
         <Routes>
           <Route index element={<Landing/>}/>

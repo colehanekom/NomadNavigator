@@ -7,6 +7,7 @@ import CustomButton from "./CustomButton";
 import { useForm } from "react-hook-form";
 import { Logout } from "../redux/userSlice";
 import { fetchPosts } from "../utils";
+import { IoMdNotificationsOutline } from "react-icons/io";
 
 const TopBar = () => {
   const { user } = useSelector((state) => state.user);
@@ -47,6 +48,12 @@ const TopBar = () => {
           containerStyles='bg-[#065ad8] text-white px-6 py-2.5 mt-2 rounded-r-full'
         />
       </form>
+
+      <div className="flex gap-4 items-center text-ascent-1 text-md md:text-xl">
+        
+        <IoMdNotificationsOutline/>
+      
+      </div>
 
         <div>
           {/* <CustomButton

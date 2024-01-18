@@ -50,8 +50,9 @@ const TopBar = () => {
       </form>
 
       <div className="flex gap-4 items-center text-ascent-1 text-md md:text-xl">
-        
+        <Link  to='/notifications'>
         <IoMdNotificationsOutline/>
+        </Link>     
       
       </div>
 

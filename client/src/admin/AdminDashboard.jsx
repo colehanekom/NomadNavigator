@@ -4,12 +4,12 @@ import Logo from '../assets/nomad-navigator-logo.png';
 
 const AdminDashboard = () => {
   const menuItems = [
-    { label: 'Dashboard', link: '/dashboard' },
+    { label: 'Dashboard', link: '/admin-dashboard' },
     { label: 'Content Management', link: '/content-management' },
     { label: 'User Profiles', link: '/user-profiles' },
     { label: 'Reported Issues', link: '/reported-issues' },
     { label: 'Announcements', link: '/announcements' },
-    { label: 'Sign Out', link: '/sign-out' },
+    { label: 'Sign Out', link: '/admin' },
   ];
 
   return (

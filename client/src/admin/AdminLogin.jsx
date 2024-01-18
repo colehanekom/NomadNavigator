@@ -29,12 +29,14 @@ const AdminLogin = () => {
               />
             </div>
             <div>
+            <Link to="/admin-dashboard">
               <button
                 type='submit'
                 className='w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600'
               >
-                <Link to="/admin-dashboard">Sign In</Link>
+                Sign In
               </button>
+              </Link>
             </div>
           </form>
         </div>

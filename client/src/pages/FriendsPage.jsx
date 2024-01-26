@@ -78,7 +78,7 @@ const FriendsPage = () => {
 
   return (
     <>
-      <div className="w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-gradient-to-r from-[#1065A1] via-[#0693F9] to-[#6f9fb8] lg:rounded-lg h-screen overflow-hidden">
+      <div className="w-full px-4 lg:px-10 pb-20 2xl:px-40 bg-gradient-to-r from-[#1065A1] via-[#0693F9] to-[#6f9fb8] lg:rounded-lg h-screen overflow-hidden">
         <div className="w-full flex flex-col gap-2 pt-5 pb-10 h-full">
           <div className="w-full h-full flex flex-col gap-8 overflow-y-auto">
             {/* Follower request */}

@@ -11,7 +11,7 @@ const BottomBar = ({ user }) => {
   return (
     <div className='lg:hidden fixed bottom-0 left-0 right-0 bg-white p-4 flex justify-between items-center'>
       {/* Home Icon */}
-      <Link to='/home' className={`cursor-pointer ${location.pathname === '/' ? 'text-blue-500' : ''}`}>
+      <Link to='/home' className={`cursor-pointer ${location.pathname === '/home' ? 'text-blue-500' : ''}`}>
         <AiOutlineHome size={24} />
       </Link>
 

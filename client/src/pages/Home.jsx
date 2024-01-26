@@ -228,9 +228,6 @@ const Home = () => {
               )}
           </div>
 
-        {/* BOTTOM BAR (Visible on Mobile) */}
-        <BottomBar user={user} />
-
           {/* RIGHT */}
           <div className='hidden w-1/4 h-full lg:flex flex-col gap-8 overflow-y-auto'>
             {/* Follower request */}
@@ -301,6 +298,9 @@ const Home = () => {
             </div>
           </div>
         </div>
+        
+        {/* BOTTOM BAR (Visible on Mobile) */}
+        <BottomBar user={user} />
     </div>
 
     {edit && <EditProfile /> }

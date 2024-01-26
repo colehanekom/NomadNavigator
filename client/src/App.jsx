@@ -3,6 +3,8 @@ import {Outlet, Navigate, Routes, Route, useLocation} from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { Landing, Signin, Signup, Home, Profile, ResetPassword, EmailSignUp, Notifications } from './pages';
 import {AdminDashboard, AdminLogin, Announcements, ContentManagement, ReportedIssues, UserProfiles} from './admin';
+import FriendsPage from './pages/FriendsPage';
+import ProfilePage from './pages/ProfilePage';
  
 function Layout(){
   const {user} = useSelector((state) => state.user);
@@ -35,6 +37,9 @@ function App() {
           <Route path="/user-profiles" element={<UserProfiles />} />
            <Route path="/reported-issues" element={<ReportedIssues />} /> 
           <Route path="/announcements" element={<Announcements />} /> 
+
+          <Route path="/friends" element={<FriendsPage />} /> 
+          <Route path="/profile" element={<ProfilePage />} /> 
 
           <Route element={<Layout/>}>
           <Route path='/profile/:id?' element={<Profile/>} />

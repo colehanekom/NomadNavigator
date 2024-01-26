@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CustomButton, EditProfile, Loading } from '../components';
+import { CustomButton, Loading } from '../components';
 import { NoProfile } from '../assets';
 import { Link } from 'react-router-dom';
 import { BsPersonFillAdd } from 'react-icons/bs';
@@ -145,6 +145,9 @@ const FriendsPage = () => {
             </div>
           </div>
         </div>
+
+        {/* BOTTOM BAR (Visible on Mobile) */}
+        <BottomBar user={user} />
       </div>
     </>
   );

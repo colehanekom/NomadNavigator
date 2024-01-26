@@ -24,10 +24,6 @@ const BottomBar = ({ user }) => {
       <Link to='/profile' className={`cursor-pointer ${location.pathname === '/profile' ? 'text-blue-500' : ''}`}>
         <BiUser size={24} />
       </Link>
-
-      {/* Display FriendsCard or ProfileCard based on the current route */}
-      {location.pathname === '/friends' && <FriendsCard friends={user?.friends} />}
-      {location.pathname === '/profile' && <ProfileCard user={user} />}
     </div>
   );
 };

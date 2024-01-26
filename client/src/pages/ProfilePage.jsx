@@ -140,6 +140,8 @@ const ProfilePage = () => {
             <FriendsCard friends={user?.friends} />
           </div>
         </div>
+         {/* BOTTOM BAR (Visible on Mobile) */}
+         <BottomBar user={user} />
       </div>
 
       {edit && <EditProfile />}

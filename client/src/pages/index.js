@@ -5,5 +5,6 @@ import Home from "./Home";
 import Profile from "./Profile";
 import ResetPassword from "./ResetPassword";
 import EmailSignUp from "./EmailSignUp";
+import Notifications from "./Notifications";
 
-export{Landing, Signin, Signup, EmailSignUp, Home, Profile, ResetPassword};
+export{Landing, Signin, Signup, EmailSignUp, Home, Profile, ResetPassword, Notifications};

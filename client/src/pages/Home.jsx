@@ -9,6 +9,7 @@ import {useForm} from "react-hook-form";
 import { apiRequest, deletePost, fetchPosts, getUserInfo, handleFileUpload, likePost, sendFriendRequest } from '../utils/index.js';
 import { UserLogin } from '../redux/userSlice.js';
 import Tooltip from '../components/Tooltip.jsx';
+import BottomBar from '../components/BottomBar.jsx';
 
 const Home = () => {
   const {user, edit} = useSelector((state) => state.user);
@@ -297,6 +298,9 @@ const Home = () => {
             </div>
           </div>
         </div>
+        
+        {/* BOTTOM BAR (Visible on Mobile) */}
+        <BottomBar user={user} />
     </div>
 
     {edit && <EditProfile /> }

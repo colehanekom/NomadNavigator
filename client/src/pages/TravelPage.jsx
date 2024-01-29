@@ -1,5 +1,6 @@
 import React from 'react';
 import InteractiveMap from '../components/Map';
+import BottomBar from '../components/BottomBar';
 
 const TravelPage = () => {
   const experiences = [
@@ -39,6 +40,11 @@ const TravelPage = () => {
     <div>
       <h1>Travel Experiences</h1>
       <InteractiveMap experiences={experiences} />
+
+       {/* BottomBar for mobile */}
+       <div className="bottom-bar-mobile">
+        <BottomBar />
+      </div>
     </div>
   );
 };

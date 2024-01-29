@@ -37,9 +37,9 @@ const TravelPage = () => {
   ];
 
   return (
-    <div>
-      <h1>Travel Experiences</h1>
-      <InteractiveMap experiences={experiences} />
+    <div className="travel-page-container">
+        <h1 className="heading">Travel Experiences</h1>
+        <InteractiveMap experiences={experiences} />
 
        {/* BottomBar for mobile */}
        <div className="bottom-bar-mobile">

@@ -7,7 +7,7 @@ import CustomButton from "./CustomButton";
 import { useForm } from "react-hook-form";
 import { Logout } from "../redux/userSlice";
 import { fetchPosts } from "../utils";
-import { IoMdNotificationsOutline } from "react-icons/io";
+import { IoMdNotificationsOutline, IoMdMap } from "react-icons/io"; 
 
 const TopBar = () => {
   const { user } = useSelector((state) => state.user);
@@ -24,15 +24,17 @@ const TopBar = () => {
 
   return (
     <div className='w-full flex items-center justify-between py-3 md:py-6 px-4 bg-white'>
+      {/* Link to home page */}
       <Link to='/home' className='flex gap-2 items-center'>
-         <div className='sm:flex'>
-      <img src={Logo} alt="Logo Image" className='w-[80px] lg:ml-8'/>
-    </div>
+        <div className='sm:flex'>
+          <img src={Logo} alt="Logo Image" className='w-[80px] lg:ml-8'/>
+        </div>
         <span className='text-xl md:text-2xl text-[#065ad8] font-semibold'>
           Nomad Navigator
         </span>
       </Link>
 
+      {/* Search form */}
       <form
         className='hidden md:flex items-center justify-center'
         onSubmit={handleSubmit(handleSearch)}
@@ -49,21 +51,24 @@ const TopBar = () => {
         />
       </form>
 
+      {/*  icon for notifications */}
       <div className="flex gap-4 items-center text-ascent-1 text-md md:text-xl">
-        <Link  to='/notifications'>
-        <IoMdNotificationsOutline/>
-        </Link>     
-      
+        <Link to='/notifications'>
+          <IoMdNotificationsOutline/>
+        </Link>
       </div>
 
-        <div>
-          {/* <CustomButton
-            onClick={() => dispatch(Logout())}
-            title='Sign Out'
-            containerStyles='text-sm  text-ascent-1 px-4 md:px-6 py-1 md:py-2 border border-[#666] rounded-full'
-          /> */}
-           <Link to='/signin' onClick={() => dispatch(Logout())} className="text-sm  text-white px-4 md:px-6 py-1 md:py-2 bg-[#065ad8] rounded-full">Sign Out</Link>
-        </div>
+      {/* icon for map */}
+      <div className="hidden sm:flex gap-4 items-center text-ascent-1 text-md md:text-xl">
+        <Link to='/map'>
+          <IoMdMap />
+        </Link>
+      </div>
+
+      {/* Sign Out button */}
+      <div>
+        <Link to='/signin' onClick={() => dispatch(Logout())} className="text-sm  text-white px-4 md:px-6 py-1 md:py-2 bg-[#065ad8] rounded-full">Sign Out</Link>
+      </div>
     </div>
   );
 };

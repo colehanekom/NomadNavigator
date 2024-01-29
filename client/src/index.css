@@ -79,3 +79,10 @@
     display: block; 
   }
 }
+.travel-page-container {
+  padding-top: 20px; 
+}
+
+.heading {
+  font-size: 24px;
+}

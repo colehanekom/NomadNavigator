@@ -67,3 +67,15 @@
     box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
   }
 }
+
+/* Default styles for BottomBar */
+.bottom-bar-mobile {
+  display: none; 
+}
+
+/* Media query to show BottomBar only on mobile devices */
+@media (max-width: 767px) {
+  .bottom-bar-mobile {
+    display: block; 
+  }
+}

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {Outlet, Navigate, Routes, Route, useLocation} from 'react-router-dom';
 import { useSelector } from "react-redux";
-import { Landing, Signin, Signup, Home, Profile, ResetPassword, EmailSignUp, Notifications } from './pages';
+import { Landing, Signin, Signup, Home, Profile, ResetPassword, EmailSignUp, Notifications, TravelPage } from './pages';
 import {AdminDashboard, AdminLogin, Announcements, ContentManagement, ReportedIssues, UserProfiles} from './admin';
 import FriendsPage from './pages/FriendsPage';
 import ProfilePage from './pages/ProfilePage';
@@ -30,6 +30,8 @@ function App() {
           <Route path='/email-signup' element={<EmailSignUp/>}/> 
           <Route path='/home' element={<Home/>}/> 
           <Route path='/notifications' element={<Notifications/>}/> 
+          <Route path='/map' element={<TravelPage/>}/> 
+
 
           <Route path="/admin" element={<AdminLogin />} />   
           <Route path="/admin-dashboard" element={<AdminDashboard />} />   

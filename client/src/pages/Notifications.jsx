@@ -9,7 +9,7 @@ const Notifications = () => {
       <div className="max-w-2xl mx-auto bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow text-center">
         <Link to="/home">
           {/* Back button with arrow icon */}
-          <button className="text-black font-semibold flex items-center mt-2 sm:mt-5 ml-2 sm:ml-6">
+          <button className="hidden sm:flex text-black font-semibold items-center mt-2 sm:mt-5 ml-2 sm:ml-6">
             <IoIosArrowBack className="mr-2" />
             Back
           </button>

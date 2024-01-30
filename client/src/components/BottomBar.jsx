@@ -4,7 +4,7 @@ import { BiUser, BiGroup } from 'react-icons/bi';
 import { AiOutlineHome } from 'react-icons/ai';
 import FriendsCard from './FriendsCard';
 import ProfileCard from './ProfileCard';
-import { IoMdMap } from 'react-icons/io';
+import { IoMdMap, IoMdNotificationsOutline } from 'react-icons/io';
 
 const BottomBar = ({ user }) => {
   const location = useLocation();
@@ -19,6 +19,11 @@ const BottomBar = ({ user }) => {
          {/* icon for map */}
         <Link to='/map' className={`cursor-pointer ${location.pathname === '/map' ? 'text-blue-500' : ''}`}>
           <IoMdMap size={24}/>
+        </Link>
+
+          {/* icon for notifications */}
+        <Link to='/notifications' className={`cursor-pointer ${location.pathname === '/notifications' ? 'text-blue-500' : ''}`}>
+          <IoMdNotificationsOutline size={24}/>
         </Link>
 
       {/* Friends Icon */}

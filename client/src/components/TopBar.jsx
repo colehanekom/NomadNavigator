@@ -52,7 +52,7 @@ const TopBar = () => {
       </form>
 
       {/*  icon for notifications */}
-      <div className="flex gap-4 items-center text-ascent-1 text-md md:text-xl">
+      <div className="hidden sm:flex gap-4 items-center text-ascent-1 text-md md:text-xl">
         <Link to='/notifications'>
           <IoMdNotificationsOutline/>
         </Link>

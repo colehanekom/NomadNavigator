@@ -9,6 +9,9 @@ import TextInput from './TextInput';
 import Loading from './Loading';
 import CustomButton from './CustomButton';
 import { apiRequest } from '../utils';
+import { RiShareForwardLine } from 'react-icons/ri';
+import { TwitterIcon, FacebookIcon } from 'react-share';
+
 
 const getPostComments = async (id) => {
   try {
@@ -156,6 +159,7 @@ const PostCard = ({post, user, deletePost, likePost}) => {
    const [loading, setLoading] = useState(false);
    const [replyComments, setReplyComments] = useState(0);
    const [showComments, setShowComments] = useState(0);
+   const [showShareOptions, setShowShareOptions] = useState(false);
 
    const getComments = async (id) => {
     setReplyComments(0);
@@ -168,6 +172,10 @@ const PostCard = ({post, user, deletePost, likePost}) => {
   const handleLike = async (uri) => {
     await likePost(uri);
     await getComments(post?._id);
+  };
+
+  const openSharePopup = () => {
+    setShowShareOptions(!showShareOptions);
   };
 
   return (
@@ -219,7 +227,7 @@ const PostCard = ({post, user, deletePost, likePost}) => {
             ) : (
               <BiLike size={20} />
             )}
-            {post?.likes?.length} Likes
+            {post?.likes?.length} 
           </p>
 
           <p className='flex gap-2 items-center text-base cursor-pointer' onClick={() => {
@@ -227,16 +235,46 @@ const PostCard = ({post, user, deletePost, likePost}) => {
             getComments(post?._id);
           }}>
             <BiComment size={20}/>
-            {post?.comments?.length} Comments
+            {post?.comments?.length} 
           </p>
 
           {user?._id === post?.userId?._id && (
           <div className='flex gap-1 items-center text-base text-ascent-1 cursor-pointer' 
           onClick={() => deletePost(post?._id)}>
           <MdOutlineDeleteOutline size={20} />  
-          <span>Delete</span>
+          <span></span>
           </div>
           )}
+
+   {/* Share button with icon */}
+   <div className='flex gap-2 items-center'>
+          <RiShareForwardLine
+            size={24}
+            className='cursor-pointer'
+            onClick={() => openSharePopup()}
+          />
+
+        {/* Share options */}
+        {showShareOptions && (
+            <div className='flex gap-2'>
+              <FacebookIcon
+                size={32}
+                round
+                onClick={() => {
+                  window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`your-website-url/posts/${post?._id}`)}`, 'Facebook Share', 'width=600,height=400');
+                }}
+              />
+
+              <TwitterIcon
+                size={32}
+                round
+                onClick={() => {
+                  window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(`your-website-url/posts/${post?._id}`)}&text=${encodeURIComponent(post?.description)}`, 'Twitter Share', 'width=600,height=400');
+                }}
+              />
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Comments */}

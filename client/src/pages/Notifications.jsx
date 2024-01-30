@@ -1,6 +1,7 @@
 import React from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import BottomBar from '../components/BottomBar';
 
 const Notifications = () => {
   return (
@@ -20,6 +21,8 @@ const Notifications = () => {
           <p className="text-gray-600">No notifications yet.</p>
         </div>
       </div>
+       {/* BOTTOM BAR (Visible on Mobile) */}
+       <BottomBar />
     </div>
   );
 };

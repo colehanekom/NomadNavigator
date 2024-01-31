@@ -23,51 +23,50 @@ const TopBar = () => {
   };
 
   return (
-    <div className='w-full flex items-center justify-between py-3 md:py-6 px-4 bg-white'>
-      {/* Link to home page */}
+    <div className='w-full flex flex-col sm:flex-row items-center justify-between py-3 md:py-6 px-4 bg-white'>
+
+      {/* Logo and text for larger screens */}
       <Link to='/home' className='flex gap-2 items-center'>
         <div className='sm:flex'>
           <img src={Logo} alt="Logo Image" className='w-[80px] lg:ml-8'/>
         </div>
-        <span className='text-xl md:text-2xl text-[#065ad8] font-semibold'>
+        <span className='text-xl md:text-2xl text-[#065ad8] font-semibold hidden sm:block'>
           Nomad Navigator
         </span>
       </Link>
 
       {/* Search form */}
       <form
-        className='hidden md:flex items-center justify-center'
+        className='flex items-center justify-center w-full sm:w-auto'
         onSubmit={handleSubmit(handleSearch)}
       >
         <TextInput
           placeholder='Search...'
-          styles='w-[18rem] lg:w-[38rem]  rounded-l-full py-3 '
+          styles='w-full sm:w-[18rem] lg:w-[38rem] rounded-l-full py-3'
           register={register("search")}
         />
         <CustomButton
           title='Search'
           type='submit'
-          containerStyles='bg-[#065ad8] text-white px-6 py-2.5 mt-2 rounded-r-full'
+          containerStyles='bg-[#065ad8] text-white px-6 py-2.5 sm:mt-1 sm:rounded-r-full'
         />
       </form>
 
-      {/*  icon for notifications */}
+      {/* Icons for notifications and map (hidden on smaller screens) */}
       <div className="hidden sm:flex gap-4 items-center text-ascent-1 text-md md:text-xl">
         <Link to='/notifications'>
           <IoMdNotificationsOutline/>
         </Link>
-      </div>
-
-      {/* icon for map */}
-      <div className="hidden sm:flex gap-4 items-center text-ascent-1 text-md md:text-xl">
         <Link to='/map'>
           <IoMdMap />
         </Link>
       </div>
 
-      {/* Sign Out button */}
-      <div>
-        <Link to='/signin' onClick={() => dispatch(Logout())} className="text-sm  text-white px-4 md:px-6 py-1 md:py-2 bg-[#065ad8] rounded-full">Sign Out</Link>
+      {/* Sign Out button with margin for smaller screens */}
+      <div className="mt-2 sm:mt-0">
+        <Link to='/signin' onClick={() => dispatch(Logout())} className="text-sm text-white px-4 md:px-6 py-1 md:py-2 bg-[#065ad8] rounded-full">
+          Sign Out
+        </Link>
       </div>
     </div>
   );

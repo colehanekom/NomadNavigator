@@ -73,6 +73,10 @@ const EmailSignup = () => {
             type="userName"
             register={register("userName", {
               required: "Username is required",
+              maxLength: {
+                value: 20,
+                message: "Username cannot exceed 20 characters",
+              },
             })}
             styles='w-full'
             error={errors.userName ? errors.userName?.message : ""}

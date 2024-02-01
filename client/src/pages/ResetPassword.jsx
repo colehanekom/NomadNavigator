@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form"
 import { TextInput } from '../components';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,19 @@ import { apiRequest } from '../utils';
 const ResetPassword = () => {
   const [errMsg, setErrMsg] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
 
   const { 
@@ -41,6 +54,11 @@ const ResetPassword = () => {
   return (
     <div className='w-full h-[100vh] bg-slate-200 flex items-center justify-center p-6'>
       <div className='bg-white w-full md:w-1/3 2xl:w-1/4 px-6 py-8 shadow-md rounded-lg'>
+      {isSmallScreen && (
+        <Link to='/' className="text-[#000000] text-sm mb-4 block">
+          &lt; Back
+        </Link>
+      )}
 <p className='text-ascent-1 text-lg font-semibold '>Email Address</p>
 <span className='text-sm text-ascent-2'>Enter email address used when signing up</span>
 

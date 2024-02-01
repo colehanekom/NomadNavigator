@@ -11,7 +11,7 @@ import CustomButton from './CustomButton';
 import { apiRequest } from '../utils';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { TwitterIcon, FacebookIcon } from 'react-share';
-
+import ConfirmationModal from '../components/ConfirmationModal';
 
 const getPostComments = async (id) => {
   try {
@@ -160,7 +160,8 @@ const PostCard = ({post, user, deletePost, likePost}) => {
    const [replyComments, setReplyComments] = useState(0);
    const [showComments, setShowComments] = useState(0);
    const [showShareOptions, setShowShareOptions] = useState(false);
-
+   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+   
    const getComments = async (id) => {
     setReplyComments(0);
 
@@ -176,6 +177,19 @@ const PostCard = ({post, user, deletePost, likePost}) => {
 
   const openSharePopup = () => {
     setShowShareOptions(!showShareOptions);
+  };
+
+  const confirmDelete = () => {
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleDeleteConfirmed = () => {
+    deletePost(post?._id);
+    setIsDeleteModalOpen(false);
+  };
+
+  const handleDeleteCanceled = () => {
+    setIsDeleteModalOpen(false);
   };
 
   return (
@@ -239,12 +253,20 @@ const PostCard = ({post, user, deletePost, likePost}) => {
           </p>
 
           {user?._id === post?.userId?._id && (
-          <div className='flex gap-1 items-center text-base text-ascent-1 cursor-pointer' 
-          onClick={() => deletePost(post?._id)}>
-          <MdOutlineDeleteOutline size={20} />  
-          <span></span>
-          </div>
+          <div className='flex gap-1 items-center text-base text-ascent-1 cursor-pointer' onClick={confirmDelete}>
+          <MdOutlineDeleteOutline size={20} />
+          <span>Delete</span>
+        </div>
           )}
+
+           {/* Confirmation Modal */}
+      {isDeleteModalOpen && (
+        <ConfirmationModal
+          message="Are you sure you want to delete this post?"
+          onConfirm={handleDeleteConfirmed}
+          onCancel={handleDeleteCanceled}
+        />
+      )}
 
    {/* Share button with icon */}
    <div className='flex gap-2 items-center'>

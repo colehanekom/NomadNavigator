@@ -42,13 +42,13 @@ const TopBar = () => {
       >
         <TextInput
           placeholder='Search...'
-          styles='w-full sm:w-[18rem] lg:w-[38rem] rounded-full py-3'
+          styles='w-full sm:w-[14rem] lg:w-[28rem] rounded-full py-2 text-md' 
           register={register("search")}
         />
         <CustomButton
           title='Search'
           type='submit'
-          containerStyles='bg-[#065ad8] text-white px-6 py-2.5 sm:mt-1 rounded-full'
+          containerStyles='bg-[#065ad8] text-white px-4 py-2 sm:mt-1 rounded-full text-sm'
         />
       </form>
 
@@ -62,9 +62,9 @@ const TopBar = () => {
         </Link>
       </div>
 
-      {/* Sign Out button with margin for smaller screens */}
+      {/* Sign Out button  */}
       <div className="mt-2 sm:mt-0">
-        <Link to='/signin' onClick={() => dispatch(Logout())} className="text-sm text-white px-4 md:px-6 py-1 md:py-2 bg-[#065ad8] rounded-full">
+        <Link to='/signin' onClick={() => dispatch(Logout())} className="text-md text-white px-4 py-2 bg-[#065ad8] rounded-full">
           Sign Out
         </Link>
       </div>

@@ -15,6 +15,10 @@ const FriendsPage = () => {
 
   const dispatch = useDispatch();
 
+  
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+
   const fetchFriendRequests = async () => {
     try {
       const res = await apiRequest({
@@ -45,6 +49,10 @@ const FriendsPage = () => {
     try {
       const res = await sendFriendRequest(user.token, id);
       await fetchSuggestedFriends();
+      
+       // Show pop-up message when the friend request is sent
+       setAlertMessage('Friend request sent!');
+       setShowAlert(true);
     } catch (error) {
       console.log(error);
     }
@@ -149,6 +157,20 @@ const FriendsPage = () => {
         {/* BOTTOM BAR (Visible on Mobile) */}
         <BottomBar user={user} />
       </div>
+
+      
+    {/* Centered Pop-up */}
+    {showAlert && (
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 shadow-lg rounded-md">
+          <p>{alertMessage}</p>
+          <button
+            onClick={() => setShowAlert(false)}
+            className="bg-red-500 text-white px-4 py-2 rounded-md mt-4"
+          >
+            Close
+          </button>
+        </div>
+      )}
     </>
   );
 };

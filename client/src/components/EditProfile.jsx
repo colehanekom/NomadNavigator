@@ -17,6 +17,9 @@ const EditProfile = () => {
 
     const{register, handleSubmit, formState: {errors},} = useForm({ mode: "onChange", defaultValues: {...user}, });
 
+    const userNameMaxLength = 20; 
+    const bioMaxLength = 70; 
+    
     const onSubmit = async (data) => {
       setIsSubmitting(true);
       setErrMsg("");
@@ -93,6 +96,10 @@ const EditProfile = () => {
                 styles='w-full'
                 register={register("userName", {
                   required: "User Name is required!",
+                  maxLength: {
+                    value: userNameMaxLength,
+                    message: `User Name cannot exceed ${userNameMaxLength} characters.`,
+                },
                 })}
                 error={errors.userName ? errors.userName?.message : ""}
               />
@@ -105,6 +112,10 @@ const EditProfile = () => {
                 styles='w-full'
                 register={register("bio", {
                   required: "Bio is required!",
+                  maxLength: {
+                    value: bioMaxLength,
+                    message: `Bio cannot exceed ${bioMaxLength} characters.`,
+                },
                 })}
                 error={errors.bio ? errors.bio?.message : ""}
               />

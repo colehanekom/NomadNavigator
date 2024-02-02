@@ -62,8 +62,8 @@ const TopBar = () => {
         </Link>
       </div>
 
-      {/* Sign Out button  */}
-      <div className="mt-2 sm:mt-0">
+      {/* Sign Out button */}
+      <div className="mt-4 sm:mt-0">
         <Link to='/signin' onClick={() => dispatch(Logout())} className="text-md text-white px-4 py-2 bg-[#065ad8] rounded-full">
           Sign Out
         </Link>

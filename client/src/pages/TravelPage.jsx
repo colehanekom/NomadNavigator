@@ -34,6 +34,24 @@ const TravelPage = () => {
         lat: -33.9187,
         lng: 18.4233,
       },
+      {
+        title: 'Kirstenbosch National Botanical Garden',
+        description: 'Strolling through the beautiful botanical gardens',
+        lat: -33.9875,
+        lng: 18.4325,
+      },
+      {
+        title: 'Boulders Beach Penguin Colony',
+        description: 'Meeting adorable penguins at Boulders Beach',
+        lat: -34.1964,
+        lng: 18.4507,
+      },
+      {
+        title: 'Groot Constantia Wine Estate',
+        description: 'Tasting exquisite wines at Groot Constantia',
+        lat: -34.0257,
+        lng: 18.4250,
+      },      
   ];
 
   return (

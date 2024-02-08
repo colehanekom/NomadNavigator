@@ -104,11 +104,11 @@ const Signin = () => {
               <Link to = '/home'> </Link> Sign In
             </button>
 
-            <div className='mt-3 grid grid-cols-3 items-center text-black'>
+            {/* <div className='mt-3 grid grid-cols-3 items-center text-black'>
             <hr className='border-black'/>
             <p className='text-center'>OR</p>
             <hr className='border-black'/>
-           </div>
+           </div> */}
 
            <button className='inline-flex justify-center items-center rounded-full bg-white px-8 py-3 text-sm font-medium text-black border border-gray-300 hover:scale-105'>
             <Link to='/google'>

@@ -131,6 +131,14 @@ const Signup = () => {
               <Link to = '/'> </Link>  Sign Up
             </button>
           </form>
+          
+          <p className='text-ascent-2 text-sm text-center'>Already have an account?
+          <Link
+            to='/signin'
+            className='text-[#1065A1] font-semibold ml-2 cursor-pointer'>
+              Sign In
+            </Link>
+          </p>
         </div>
       </div>
     </div>

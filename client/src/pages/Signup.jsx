@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { TextInput } from "../components/";
 import Logo from '../assets/nomad-navigator-logo.png';
-import { IoIosArrowBack } from 'react-icons/io';
 import { apiRequest } from '../utils';
 
 const Signup = () => {

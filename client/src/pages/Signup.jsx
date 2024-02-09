@@ -45,13 +45,7 @@ const Signup = () => {
   return (
     <div className='w-full h-[100vh] bg-slate-50 flex items-center justify-center p-6'>
       <div className='w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-white rounded-xl overflow-hidden shadow-xl '>
-          <Link to="/signup">
-              {/* Back button with arrow icon */}
-              <button className="text-black font-semibold flex items-center mt-5 ml-6">
-                <IoIosArrowBack className="mr-2" />
-                Back
-              </button>
-          </Link>
+          <Link to="/signup"></Link>
         {/* LEFT */}
         <div className='hidden w-1/2 h-full lg:flex flex-col items-center justify-center'>
           <div className='relative w-full flex items-center justify-center'>

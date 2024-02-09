@@ -71,7 +71,7 @@ const Signup = () => {
                 message: "Username cannot exceed 20 characters",
               },
             })}
-            styles='w-full'
+            styles='w-full rounded-full'
             error={errors.userName ? errors.userName?.message : ""}
             />
 
@@ -82,7 +82,7 @@ const Signup = () => {
             register={register("email", {
               required: "Email Address is required",
             })}
-            styles='w-full'
+            styles='w-full rounded-full'
             error={errors.email ? errors.email.message : ""}
             />
 
@@ -93,7 +93,7 @@ const Signup = () => {
             register={register("password", {
               required: "Password is required",
             })}
-            styles='w-full'
+            styles='w-full rounded-full'
             error={errors.password ? errors.password.message : ""}
             />
 
@@ -101,7 +101,7 @@ const Signup = () => {
             name="confirmpassword" placeholder="Confirm Password"
             label="Confirm Password"
             type="password"
-            styles='w-full'
+            styles='w-full rounded-full'
             register={register("cPassword", {
                 validate: (value) => {
                     const { password } = getValues();

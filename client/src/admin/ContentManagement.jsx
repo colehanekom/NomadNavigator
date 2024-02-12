@@ -3,6 +3,27 @@ import { Link } from 'react-router-dom';
 import Logo from '../assets/nomad-navigator-logo.png';
 
 const ContentManagement = () => {
+  const travelExperiences = [
+    {
+      id: 1,
+      user: 'john_doe',
+      content: 'Amazing trip to Paris! 🗼 #TravelGoals',
+      status: 'pending', 
+    },
+    {
+      id: 2,
+      user: 'alice_smith',
+      content: 'Exploring the beaches of Thailand. 🌴 #Wanderlust',
+      status: 'approved',
+    },
+    {
+      id: 3,
+      user: 'bob_jones',
+      content: 'Moderation needed for inappropriate content. 🚫',
+      status: 'moderation',
+    },
+  ];
+
   const menuItems = [
     { label: 'Dashboard', link: '/admin-dashboard' },
     { label: 'Content Management', link: '/content-management' },
@@ -35,6 +56,19 @@ const ContentManagement = () => {
       {/* Main Content */}
       <div className="flex-1 p-8">
         <h1 className="text-2xl font-bold mb-4">Content Management</h1>
+
+        {/* Displaying Travel Experiences as Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {travelExperiences.map((experience) => (
+            <div key={experience.id} className="bg-white p-4 rounded-lg shadow-md">
+              <strong className="text-lg">{experience.user}</strong>
+              <p className="text-gray-500">{experience.content}</p>
+              <div className="mt-2">
+                <strong>Status:</strong> {experience.status}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

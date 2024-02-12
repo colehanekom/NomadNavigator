@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import Logo from '../assets/nomad-navigator-logo.png';
 
 const AdminDashboard = () => {
+  const totalUsers = 10;
+  const totalPlaces = 5;
+
   const menuItems = [
     { label: 'Dashboard', link: '/admin-dashboard' },
     { label: 'Content Management', link: '/content-management' },
@@ -35,6 +38,19 @@ const AdminDashboard = () => {
       {/* Main Content */}
       <div className="flex-1 p-8">
         <h1 className="text-2xl font-bold mb-4">Welcome to Your Dashboard</h1>
+
+        {/* Total Users and Places */}
+        <div className="grid grid-cols-2 gap-8">
+          <div className="bg-white p-4 rounded-md shadow-md">
+            <h2 className="text-xl font-bold mb-2">Total Users</h2>
+            <p className="text-3xl font-bold text-blue-500">{totalUsers}</p>
+          </div>
+
+          <div className="bg-white p-4 rounded-md shadow-md">
+            <h2 className="text-xl font-bold mb-2">Total Places</h2>
+            <p className="text-3xl font-bold text-green-500">{totalPlaces}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

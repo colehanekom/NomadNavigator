@@ -12,6 +12,7 @@ const Signin = () => {
   const [errMsg, setErrMsg] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
 
   const { 
     register, handleSubmit, formState: {errors},
@@ -74,17 +75,28 @@ const Signin = () => {
             error={errors.email ? errors.email.message : ""}
             />
 
-            <TextInput
-            name="password" placeholder="Enter your password"
+           
+        <div className="relative">
+          <TextInput
+            name="password"
+            placeholder="Enter your password"
             label="Password"
-            type="password"
-            register={register("password", {
-              required: "Password is required",
+            type={showPassword ? 'text' : 'password'}
+            register={register('password', {
+              required: 'Password is required',
             })}
-            styles='w-full rounded-full'
-            labelStyle='ml-2'
-            error={errors.password ? errors.password.message : ""}
-            />
+            styles="w-full rounded-full"
+            labelStyle="ml-2"
+            error={errors.password ? errors.password.message : ''}
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-2 bottom-3 cursor-pointer text-sm text-[#1065A1] font-semibold"
+            >
+            {showPassword ? 'Hide' : 'Show'}
+          </button>
+        </div>
 
             <Link to='/reset-password' className='text-sm text-right text-[#1065A1] font-semibold'>Forgot Password?</Link>
 

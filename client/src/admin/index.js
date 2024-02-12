@@ -1,4 +1,4 @@
-import AdminDashboard from "./adminDashboard";
+import AdminDashboard from "./AdminDashboard";
 import AdminLogin from "./adminLogin";
 import ContentManagement from "./ContentManagement";
 import UserProfiles from "./UserProfiles";

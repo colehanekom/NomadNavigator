@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import Logo from '../assets/nomad-navigator-logo.png';
-import AdminDashboard from './AdminDashboard'; 
+import AdminDashboard from './AdminDashboard';
+
 const AdminLogin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [authenticated, setAuthenticated] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSignIn = (e) => {
     e.preventDefault();
 
-    // For simplicity, the correct username and password are 'admin'
+    // For simplicity, username and password are 'admin' and 'password'
     if (username === 'admin' && password === 'password') {
       // If authentication is successful, set the authenticated state to true
       setAuthenticated(true);
@@ -45,14 +47,21 @@ const AdminLogin = () => {
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
-            <div>
+            <div className='relative'>
               <input
-                type='password'
+                type={showPassword ? 'text' : 'password'}
                 className='w-full px-4 py-2 border rounded-md'
                 placeholder='Password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <button
+                type='button'
+                className='absolute top-2 right-2 text-gray-500'
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
             </div>
             {error && <p className='text-red-500'>{error}</p>}
             <div>

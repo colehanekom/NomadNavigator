@@ -55,7 +55,7 @@ const ResetPassword = () => {
     <div className='w-full h-[100vh] bg-slate-200 flex items-center justify-center p-6'>
       <div className='bg-white w-full md:w-1/3 2xl:w-1/4 px-6 py-8 shadow-md rounded-lg'>
       {isSmallScreen && (
-        <Link to='/' className="text-[#000000] text-sm mb-4 block">
+        <Link to='/signin' className="text-[#000000] text-sm mb-4 block">
           &lt; Back
         </Link>
       )}

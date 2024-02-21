@@ -32,8 +32,8 @@ const Announcements = () => {
   useEffect(() => {
     // Use the effect to navigate to the Notifications page when submissionMessage changes
     if (submissionMessage && newAnnouncement) {
-      // Add a 3-second delay before navigating
-      const delay = 3000; // 3 seconds in milliseconds
+      // Add a 2-second delay before navigating
+      const delay = 2000; // 2 seconds in milliseconds
 
       const timeoutId = setTimeout(() => {
         // Navigate to the Notifications page and pass the announcement as state

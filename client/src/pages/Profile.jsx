@@ -10,6 +10,7 @@ import {
   TopBar,
 } from "../components";
 import { deletePost, fetchPosts, getUserInfo } from "../utils";
+import BottomBar from '../components/BottomBar.jsx';
 
 const Profile = () => {
   const { id } = useParams();
@@ -87,6 +88,8 @@ const Profile = () => {
             <FriendsCard friends={userInfo?.friends} />
           </div>
         </div>
+         {/* BOTTOM BAR (Visible on Mobile) */}
+         <BottomBar user={user} />
       </div>
       {edit && <EditProfile />}
     </>

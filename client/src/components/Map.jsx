@@ -1,5 +1,4 @@
 import 'leaflet/dist/leaflet.css';
-import 'leaflet.mobile';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const Map = ({ experiences }) => {
